@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yan Dimitri Kruziski</title>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.55.2/dist/phaser.min.js"></script>
+    <script src="scenes/game.js"></script>
+    <script src="scenes/menu.js"></script>
+    <script src="scenes/game_over.js"></script>
+    
+
+    <style> body { display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; } </style>
+</head>
+
+<body>
+    <script>
+        // Define o tamanho da tela em que o jogo aparece
+        const larguraJogo = 850;
+        const alturaJogo = 700;
+
+        var botao;
+        var plataformas = ['plataforma1', 'plataforma2', 'plataforma3'];
+        var moeda;
+        var personagem;
+        var teclado;
+        var pulo;
+        var pontos = 0;
+        var placar;
+        var tempoPulo;
+        var posicaoMoedaX;
+        var posicaoMoedaY;
+        var sorteio = 1;
+        var sorteioVerificar = 1;
+        var pontosInicio = 0;
+        var chao;
+        var bomba;
+        var reset;
+        var purpurina;
+        var mago;
+        var fada;
+        var moedona;
+        
+
+        // Configurações básicas de um jogo Phaser
+        const config = {
+            type: Phaser.AUTO,
+            width: larguraJogo,
+            height: alturaJogo,
+        
+            scale: {
+            mode: Phaser.Scale.FIT,
+            autoCenter: Phaser.Scale.CENTER_BOTH
+
+            
+        },
+
+            //ativando as física do jogo 
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 300 },
+                    debug: true
+                }
+            }, 
+
+            scene:[menu, jogo, game_over]
+        };
+
+        // criamos o jogo usando Phaser
+        const game = new Phaser.Game(config);
+    </script>
+</body>
+</html>
